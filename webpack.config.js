@@ -1,19 +1,19 @@
-const path = require('path')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const path = require("path")
+const HtmlWebpackPlugin = require("html-webpack-plugin")
+const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
-const fs = require('fs')
+const fs = require("fs")
 const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
-const ESLintPlugin = require('eslint-webpack-plugin')
+const ESLintPlugin = require("eslint-webpack-plugin")
 
 
-const isDev = process.env.NODE_ENV === 'development'
+const isDev = process.env.NODE_ENV === "development"
 const isProd = !isDev
 
-const getHtmlNames = () => fs.readdirSync(path.resolve(__dirname, 'source'))
-  .filter(filename => filename.includes('.html'))
+const getHtmlNames = () => fs.readdirSync(path.resolve(__dirname, "source"))
+  .filter(filename => filename.includes(".html"))
 
 const createHtmlWebpackPlugins = (htmlFileNames) => {
   return htmlFileNames.map(name => new HtmlWebpackPlugin(
@@ -30,9 +30,9 @@ const createHtmlWebpackPlugins = (htmlFileNames) => {
 const optimization = () => {
   const config = {
     splitChunks: {
-      chunks: 'all'                                                                                               // Настройка, позволяющая не грузить дважды одни и те же библиотеки
+      chunks: "all"                                                                                               // Настройка, позволяющая не грузить дважды одни и те же библиотеки
     },
-    runtimeChunk: 'single'
+    runtimeChunk: "single"
   }
   if (isProd) {
     config.minimize = true
@@ -74,11 +74,11 @@ const optimization = () => {
         },
         generator: [
           {
-            preset: 'webp',
-            type: 'asset',
+            preset: "webp",
+            type: "asset",
             implementation: ImageMinimizerPlugin.imageminGenerate,
             options: {
-              plugins: ['imagemin-webp']
+              plugins: ["imagemin-webp"]
             }
           }
         ]
@@ -90,21 +90,21 @@ const optimization = () => {
 
 module.exports = {
   mode: process.env.NODE_ENV,
-  entry: path.resolve(__dirname, 'source/js/index.js'),
+  entry: path.resolve(__dirname, "source/js/index.js"),
   output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: 'js/[name].bundle.js',
+    path: path.resolve(__dirname, "dist"),
+    filename: "js/[name].bundle.js",
     clean: true
   },
-  devtool: isDev ? 'source-map' : false,
+  devtool: isDev ? "source-map" : false,
   devServer: {
     static: {
-      directory: path.join(__dirname, 'dist')
+      directory: path.join(__dirname, "dist")
     },
     open: {
       app: {
-        name: 'chrome',
-        arguments: ['--incognito', '--new-window']
+        name: "chrome",
+        arguments: ["--incognito", "--new-window"]
       }
     },
     compress: true,
@@ -113,46 +113,46 @@ module.exports = {
   plugins: [
     ...createHtmlWebpackPlugins(getHtmlNames()),
     new MiniCssExtractPlugin({
-        filename: 'css/styles.css',
-        linkType: 'text/css',
+        filename: "css/styles.css",
+        linkType: "text/css",
       }
     ),
     new CopyWebpackPlugin({
       patterns: [{
-        from: path.resolve(__dirname, 'source/images/'),
-        to: path.resolve(__dirname, 'dist/images')
+        from: path.resolve(__dirname, "source/images/"),
+        to: path.resolve(__dirname, "dist/images")
       }]
     }),
     new ESLintPlugin()
   ],
-
+  
   module: {
     rules: [
       {
         test: /\.s[ac]ss$/i,
         use: [
           MiniCssExtractPlugin.loader,
-          'css-loader',
+          "css-loader",
           {
-            loader: 'postcss-loader',
+            loader: "postcss-loader",
             options: {
               postcssOptions: {
                 plugins: [
-                  ['postcss-preset-env',]
+                  ["postcss-preset-env",]
                 ]
               }
             }
           },
-          'sass-loader'
+          "sass-loader"
         ],
       },
       {
         test: /\.(png|svg|jpg|jpeg|webp)$/i,
-        type: 'asset/resource',
+        type: "asset/resource",
       },
       {
         test: /\.(woff|woff2|ttf)$/i,
-        type: 'asset/resource',
+        type: "asset/resource",
       },
     ]
   },

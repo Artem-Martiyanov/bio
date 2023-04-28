@@ -1,8 +1,8 @@
 .button {
-  background-color: red;
-  color: white;
-  padding: 10px;
-  border: none;
   display: grid;
+  padding: 10px;
+  color: white;
+  border: none;
+  background-color: red;
   mask: url("../images/jpg/product-1.jpg");
 }
