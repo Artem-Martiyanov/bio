@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkbio=self.webpackChunkbio||[]).push([[179],{322:()=>{console.log("other1")}},e=>{var s;s=322,e(e.s=s)}]);

@@ -89,6 +89,7 @@ const optimization = () => {
 }
 
 module.exports = {
+  target: 'web',
   mode: process.env.NODE_ENV,
   entry: path.resolve(__dirname, 'source/js/index.js'),
   output: {
@@ -98,6 +99,8 @@ module.exports = {
   },
   devtool: isDev ? 'source-map' : false,
   devServer: {
+    watchFiles: path.join(__dirname, 'source'),
+    hot: true,
     static: {
       directory: path.join(__dirname, 'dist')
     },

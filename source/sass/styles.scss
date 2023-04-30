@@ -1,7 +1,5 @@
-@use "./components/button.scss";
-
-body {
-  //background-color: teal;
-  //background-image: url('../images/eco-material.svg');
-  //в
-}
+@use "global";
+@use "components/page";
+@use "components/quiz-box";
+@use "components/control";
+@use "components/button";

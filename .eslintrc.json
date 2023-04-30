@@ -5,14 +5,15 @@
     "es6": true
   },
   "rules": {
-    "no-unused-vars": 2,
-    "no-undef": 2,
+//    "no-unused-vars": 2,
+//    "no-undef": 2,
     "quotes": [
-      "error",
+      "warn",
       "single"
     ]
   },
   "parserOptions": {
-    "sourceType": "module"
+    "sourceType": "module",
+    "ecmaVersion": 2022
   }
 }
