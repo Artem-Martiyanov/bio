@@ -7,6 +7,8 @@ const fs = require('fs')
 const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const ESLintPlugin = require('eslint-webpack-plugin')
+const ImageminWebpWebpackPlugin= require("imagemin-webp-webpack-plugin");
+
 
 
 const isDev = process.env.NODE_ENV === 'development'
@@ -39,6 +41,8 @@ const optimization = () => {
     config.minimizer = [
       new CssMinimizerPlugin(),
       new TerserPlugin(),
+  
+    
       new ImageMinimizerPlugin({
         minimizer: {
           implementation: ImageMinimizerPlugin.imageminMinify,
@@ -72,17 +76,17 @@ const optimization = () => {
             ],
           },
         },
-        generator: [
-          {
-            preset: 'webp',
-            type: 'asset',
-            implementation: ImageMinimizerPlugin.imageminGenerate,
-            options: {
-              plugins: ['imagemin-webp']
-            }
-          }
-        ]
+        // generator: [
+        //   {
+        //     type: "asset",
+        //     implementation: ImageMinimizerPlugin.imageminGenerate,
+        //     options: {
+        //       plugins: ["imagemin-webp"],
+        //     },
+        //   },
+        // ],
       }),
+      new ImageminWebpWebpackPlugin()
     ]
   }
   return config
@@ -126,7 +130,7 @@ module.exports = {
         to: path.resolve(__dirname, 'dist/images')
       }]
     }),
-    new ESLintPlugin()
+    new ESLintPlugin(),
   ],
   
   module: {
