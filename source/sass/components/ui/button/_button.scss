@@ -1,0 +1,1 @@
+@use "../../../variables" as *;.button {  font-family: inherit;  line-height: 1.5;  margin: 0;  padding: 9px 15px;  text-decoration: none;  color: $secondary-font-color;  border-radius: 5px;  background: none;  box-shadow: 0 0 3px $shadow-color;    &--primary {    background: $button-primary-color;      }}

@@ -1,0 +1,1 @@
+import './sass/styles.scss'import {LiveBackground} from './components/animated-background/LiveBackground'const backgroundSettings = new LiveBackground(  'cube',  80,  [{fill: '#314388', stroke: '#394d9a'}, {fill: '#6666ce'}, {fill: '#0c234a'}],  5)

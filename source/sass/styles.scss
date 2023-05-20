@@ -1,5 +1,3 @@
 @use "global";
-@use "components/page";
-@use "components/quiz-box";
-@use "components/control";
-@use "components/button";
+@use "layouts/intro-page";
+@use "components/ui/button/button";

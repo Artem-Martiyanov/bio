@@ -7,8 +7,7 @@ const fs = require('fs')
 const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const ESLintPlugin = require('eslint-webpack-plugin')
-const ImageminWebpWebpackPlugin= require("imagemin-webp-webpack-plugin");
-
+const ImageminWebpWebpackPlugin = require('imagemin-webp-webpack-plugin');
 
 
 const isDev = process.env.NODE_ENV === 'development'
@@ -41,8 +40,6 @@ const optimization = () => {
     config.minimizer = [
       new CssMinimizerPlugin(),
       new TerserPlugin(),
-  
-    
       new ImageMinimizerPlugin({
         minimizer: {
           implementation: ImageMinimizerPlugin.imageminMinify,
@@ -76,15 +73,6 @@ const optimization = () => {
             ],
           },
         },
-        // generator: [
-        //   {
-        //     type: "asset",
-        //     implementation: ImageMinimizerPlugin.imageminGenerate,
-        //     options: {
-        //       plugins: ["imagemin-webp"],
-        //     },
-        //   },
-        // ],
       }),
       new ImageminWebpWebpackPlugin()
     ]
@@ -95,10 +83,10 @@ const optimization = () => {
 module.exports = {
   target: 'web',
   mode: process.env.NODE_ENV,
-  entry: path.resolve(__dirname, 'source/js/index.js'),
+  entry: path.resolve(__dirname, 'source/index.js'),
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'js/[name].bundle.js',
+    filename: '[name].bundle.js',
     clean: true
   },
   devtool: isDev ? 'source-map' : false,
@@ -108,12 +96,12 @@ module.exports = {
     static: {
       directory: path.join(__dirname, 'dist')
     },
-    open: {
-      app: {
-        name: 'chrome',
-        arguments: ['--incognito', '--new-window']
-      }
-    },
+    // open: {
+    //   app: {
+    //     name: 'chrome',
+    //     arguments: ['--incognito', '--new-window']
+    //   }
+    // },
     compress: true,
     port: 3000,
   },
@@ -151,6 +139,23 @@ module.exports = {
             }
           },
           'sass-loader'
+        ],
+      },
+      {
+        test: /\.css$/i,
+        use: [
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+          {
+            loader: 'postcss-loader',
+            options: {
+              postcssOptions: {
+                plugins: [
+                  ['postcss-preset-env',]
+                ]
+              }
+            }
+          }
         ],
       },
       {
