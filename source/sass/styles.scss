@@ -1,3 +1,14 @@
 @use "global";
+
+// Layouts
+@use "layouts/page";
 @use "layouts/intro-page";
+@use "layouts/works-page";
+
+// UI
 @use "components/ui/button/button";
+@use "components/ui/burger/burger";
+
+// Components
+@use "components/header/header";
+@use "components/nav/nav";
