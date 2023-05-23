@@ -8,7 +8,12 @@
 // UI
 @use "components/ui/button/button";
 @use "components/ui/burger/burger";
+@use "components/ui/swither/switcher";
 
 // Components
-@use "components/header/header";
+@use "components/lamp/lamp";
+@use "components/social/social";
 @use "components/nav/nav";
+@use "components/header/header";
+
+@use "animations/animations";
