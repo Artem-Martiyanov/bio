@@ -116,13 +116,30 @@ module.exports = {
       patterns: [{
         from: path.resolve(__dirname, 'source/images/'),
         to: path.resolve(__dirname, 'dist/images')
-      }]
+      },
+        {
+          from: path.resolve(__dirname, 'source/fonts/'),
+          to: path.resolve(__dirname, 'dist/fonts')
+        },
+        {
+          from: path.resolve(__dirname, 'source/favicon.ico'),
+          to: path.resolve(__dirname, 'dist/')
+        },
+        {
+          from: path.resolve(__dirname, 'source/manifest.webmanifest'),
+          to: path.resolve(__dirname, 'dist/')
+        }
+      ]
     }),
     new ESLintPlugin(),
   ],
   
   module: {
     rules: [
+      {
+        test: /\.(woff|woff2|ttf)$/i,
+        type: 'asset/resource',
+      },
       {
         test: /\.s[ac]ss$/i,
         use: [
@@ -161,10 +178,9 @@ module.exports = {
       {
         test: /\.(png|svg|jpg|jpeg|webp)$/i,
         type: 'asset/resource',
-      },
-      {
-        test: /\.(woff|woff2|ttf)$/i,
-        type: 'asset/resource',
+        generator: {
+          filename: 'images/[name][ext]'
+        }
       },
     ]
   },
