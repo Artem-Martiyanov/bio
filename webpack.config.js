@@ -73,8 +73,7 @@ const optimization = () => {
             ],
           },
         },
-      }),
-      new ImageminWebpWebpackPlugin()
+      })
     ]
   }
   return config
@@ -132,6 +131,7 @@ module.exports = {
       ]
     }),
     new ESLintPlugin(),
+    new ImageminWebpWebpackPlugin()
   ],
   
   module: {
