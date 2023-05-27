@@ -1,1 +1,50 @@
-@use "variables" as *;*, ::before, *::after {  box-sizing: border-box;}html {  font-size: 1.2vw;  min-height: 100%;  scrollbar-width: thin;  scrollbar-color: $g-green #333333;}::-webkit-scrollbar {  width: 7px;}::-webkit-scrollbar-track {  background-color: transparent;}::-webkit-scrollbar-thumb {  border-radius: 10px;  background: $g-green;}.visually-hidden {  position: absolute !important;  overflow: hidden !important;  clip: rect(0 0 0 0) !important;  width: 1px !important;  height: 1px !important;  margin: -1px !important;  padding: 0 !important;  white-space: nowrap !important;  border: 0 !important;  clip-path: inset(100%) !important;}.container {  width: 100%;  max-width: 1050px;  margin: 0 auto;  padding: 0 $container-padding-desktop;    @media (max-width: $tablet-width) {    padding: 0 $container-padding-tablet;  }}
+@use "variables" as *;
+
+*, ::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 1.2vw;
+  min-height: 100%;
+  scrollbar-width: thin;
+  scrollbar-color: $g-green #333333;
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: $g-green;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  overflow: hidden !important;
+  clip: rect(0 0 0 0) !important;
+  width: 1px !important;
+  height: 1px !important;
+  margin: -1px !important;
+  padding: 0 !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+  clip-path: inset(100%) !important;
+}
+
+.container {
+  width: 100%;
+  max-width: 1050px;
+  margin: 0 auto;
+  padding: 0 $container-padding-desktop;
+  
+  @media (max-width: $tablet-width) {
+    padding: 0 $container-padding-tablet;
+  }
+}
+

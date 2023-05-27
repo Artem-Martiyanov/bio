@@ -1,1 +1,0 @@
-const sfd = 0if (sfd) {  console.log('f')}

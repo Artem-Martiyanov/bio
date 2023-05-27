@@ -1,1 +1,135 @@
-@use "../../variables" as *;.works {  display: grid;  margin: 150px 0 0;  padding: 0;  list-style: none;  grid-template-columns: repeat(2, 1fr);  gap: 20px;    &__item {    position: relative;    padding: 1px;    overflow: hidden;  }    &__content {    font-size: min(max(1.3rem, 15px), 19px);    display: flex;    align-items: center;    border-radius: 30px;    background-color: $g-light;    justify-content: center;    overflow: hidden;  }    &__inner {    position: absolute;    top: 0;    right: 0;    bottom: 0;    left: 0;    display: flex;    flex-direction: column;    padding: 25px 20px 15px 30px;    transition: opacity 0.2s ease, transform 0.2s ease-out;    transform: scale(1.2);    opacity: 0;    color: $g-light;    background-color: rgba($g-dark, 0.95);        @media (max-width: $tablet-width) {      padding: 18px;    }  }    &__item:hover &__inner {    transform: scale(1);    opacity: 1;  }    &__title {    font-size: min(5rem, 20px);    position: relative;    margin: 0 0 1em;    padding: 0 0 1em;    text-align: center;        &::after {      position: absolute;      bottom: 0;      left: 50%;      width: 30%;      height: 2px;      content: "";      transform: translateX(-50%);      border-radius: 5px;      background: $g-green;    }        span {      color: $g-green;    }        @media (max-width: $tablet-width) {      margin: 0 0 0.5em;      padding: 0 0 0.5em;    }  }    &__description {    overflow-y: auto;    flex: 1;    margin: 0 0 1em;    text-align: justify;  }    &__image {    display: block;    width: 100%;    height: auto;    border-radius: 30px;    object-position: center;    object-fit: cover;        @media (max-width: $mobile-width) {      width: auto;      max-height: 400px;    }  }    &__links {    display: flex;    gap: 30px;    padding: 0 15px;  }    &__link {    transition: transform $animation-duration ease;    color: $g-green;    filter: drop-shadow(0 0 5px $g-green);        svg {      width: 25px;      height: 25px;    }        &:hover {      transform: scale(1.1);      filter: drop-shadow(0 0 10px $g-green);          }        @media (max-width: $tablet-width) {      svg {        width: 20px;        height: 20px;      }    }  }    @media (max-width: $tablet-width) {    grid-template-columns: 1fr;  }}
+@use "../../variables" as *;
+
+.works {
+  display: grid;
+  margin: 150px 0 0;
+  padding: 0;
+  list-style: none;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  
+  &__item {
+    position: relative;
+    padding: 1px;
+    overflow: hidden;
+  }
+  
+  &__content {
+    font-size: min(max(1.3rem, 15px), 19px);
+    display: flex;
+    align-items: center;
+    border-radius: 30px;
+    background-color: $g-light;
+    justify-content: center;
+    overflow: hidden;
+  }
+  
+  &__inner {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 25px 20px 15px 30px;
+    transition: opacity 0.2s ease, transform 0.2s ease-out;
+    transform: scale(1.2);
+    opacity: 0;
+    color: $g-light;
+    background-color: rgba($g-dark, 0.95);
+    
+    @media (max-width: $tablet-width) {
+      padding: 18px;
+    }
+  }
+  
+  &__item:hover &__inner {
+    transform: scale(1);
+    opacity: 1;
+  }
+  
+  &__title {
+    font-size: min(5rem, 20px);
+    position: relative;
+    margin: 0 0 1em;
+    padding: 0 0 1em;
+    text-align: center;
+    
+    &::after {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 30%;
+      height: 2px;
+      content: "";
+      transform: translateX(-50%);
+      border-radius: 5px;
+      background: $g-green;
+    }
+    
+    span {
+      color: $g-green;
+    }
+    
+    @media (max-width: $tablet-width) {
+      margin: 0 0 0.5em;
+      padding: 0 0 0.5em;
+    }
+  }
+  
+  &__description {
+    overflow-y: auto;
+    flex: 1;
+    margin: 0 0 1em;
+    text-align: justify;
+  }
+  
+  &__image {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 30px;
+    object-position: center;
+    object-fit: cover;
+    
+    @media (max-width: $mobile-width) {
+      width: auto;
+      max-height: 400px;
+    }
+  }
+  
+  &__links {
+    display: flex;
+    gap: 30px;
+    padding: 0 15px;
+  }
+  
+  &__link {
+    transition: transform $animation-duration ease;
+    color: $g-green;
+    filter: drop-shadow(0 0 5px $g-green);
+    
+    svg {
+      width: 25px;
+      height: 25px;
+    }
+    
+    &:hover {
+      transform: scale(1.1);
+      filter: drop-shadow(0 0 10px $g-green);
+      
+    }
+    
+    @media (max-width: $tablet-width) {
+      svg {
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+  
+  @media (max-width: $tablet-width) {
+    grid-template-columns: 1fr;
+  }
+}
