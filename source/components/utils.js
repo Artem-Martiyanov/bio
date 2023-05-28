@@ -31,3 +31,6 @@ export const convertToWebp = (url) => {
 }
 
 export const iterator = (start = 0) => () => ++start
+
+export const isInCookie = (string) => document.cookie.indexOf(string) >= 0
+

@@ -25,6 +25,10 @@ export const WorksCard = (params) => {
                   <use href="./images/stack.svg#github"></use>
                 </svg>
               </a>
+              <span class="works__view">
+                <span class="visually-hidden">Количество просмотров.</span>
+                <span class="works__counter">${params.view}</span>
+              </span>
             </footer>
           </div>
         </div>
