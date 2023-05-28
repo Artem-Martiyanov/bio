@@ -1,1 +1,14 @@
-{  "name": "Bio",  "short_name": "Bio",  "icons": [      { "src": "images/favicons/192.png", "type": "image/png", "sizes": "192x192", "purpose": "any" },      { "src": "images/favicons/512.png", "type": "image/png", "sizes": "512x512", "purpose": "any" },      { "src": "images/favicons/512.png", "type": "image/png", "sizes": "512x512", "purpose": "maskable"}    ],  "background_color": "#ffffff",  "display": "fullscreen",  "scope": "/",  "theme_color": "black",  "description": "Mishka - The shop of pleasant trifles to order"}
+{
+  "name": "Bio",
+  "short_name": "Bio",
+  "icons": [
+      { "src": "images/favicons/192.png", "type": "image/png", "sizes": "192x192", "purpose": "any" },
+      { "src": "images/favicons/512.png", "type": "image/png", "sizes": "512x512", "purpose": "any" },
+      { "src": "images/favicons/512.png", "type": "image/png", "sizes": "512x512", "purpose": "maskable"}
+    ],
+  "background_color": "#ffffff",
+  "display": "fullscreen",
+  "scope": "/",
+  "theme_color": "black",
+  "description": "Mishka - The shop of pleasant trifles to order"
+}
