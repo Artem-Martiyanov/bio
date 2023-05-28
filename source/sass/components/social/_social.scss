@@ -1,1 +1,26 @@
-@use "../../variables" as *;.social {  display: flex;  align-items: center;  margin: 0;  padding: 0;  list-style: none;  gap: 20px;    &__link {    display: block;    transition: color $animation-duration ease;    text-decoration: none;    color: inherit;        svg {      width: 35px;      height: 35px;    }        &:hover, &:focus {      color: $g-green;    }  }}
+@use "../../variables" as *;
+
+.social {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  gap: 20px;
+  
+  &__link {
+    display: block;
+    transition: color $animation-duration ease;
+    text-decoration: none;
+    color: inherit;
+    
+    svg {
+      width: 35px;
+      height: 35px;
+    }
+    
+    &:hover, &:focus {
+      color: $g-green;
+    }
+  }
+}
