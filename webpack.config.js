@@ -103,6 +103,14 @@ module.exports = {
     // },
     compress: true,
     port: 3000,
+    historyApiFallback: true,
+    // proxy: {
+    //   '/**': {
+    //     target: 'https://portfolio-ee6bc-default-rtdb.europe-west1.firebasedatabase.app',
+    //     secure: false,
+    //     changeOrigin: true
+    //   }
+    // }
   },
   plugins: [
     ...createHtmlWebpackPlugins(getHtmlNames()),
@@ -133,7 +141,7 @@ module.exports = {
     new ESLintPlugin(),
     new ImageminWebpWebpackPlugin()
   ],
-  
+
   module: {
     rules: [
       {
