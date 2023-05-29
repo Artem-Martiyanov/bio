@@ -1,9 +1,11 @@
 import Works from '../components/works';
+import store from '../store/instance';
 
 const App = {
   render: function () {
-    Works.render()
+    store.actions.works.load().then(() => {
+      Works.render()
+    })
   }
 }
-
 export default App

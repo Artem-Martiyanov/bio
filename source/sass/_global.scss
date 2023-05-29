@@ -42,7 +42,7 @@ html {
   max-width: 1050px;
   margin: 0 auto;
   padding: 0 $container-padding-desktop;
-  
+
   @media (max-width: $tablet-width) {
     padding: 0 $container-padding-tablet;
   }
