@@ -56,31 +56,9 @@ const onClickHandler = (event) => {
 
 
   if (dataType === 'cat-tail') {
+    //TODO: Декомпозировать это убожество
     document.ondragstart = () => false
-    const moveHandler = (ev) => {
-      document.addEventListener('pointerup', upHandler)
-
-      const pointerOffsetXPercent = ev.clientX / document.documentElement.clientWidth * 100
-
-      // Предел смещения кота
-      const isOffsetLimit = ev.clientX > Cat.el.clientWidth * 2
-
-      // Если предел смещения не достигнут
-      if (!isOffsetLimit) {
-        const savedClawsOffset = Number(localStorage.getItem('clawOffset')) ?? null
-        const currentClawsOffset = (ev.clientX - Cat.el.clientWidth * 1.25) / 2
-
-        // Если нужно сместить когти
-        if (!savedClawsOffset || savedClawsOffset < currentClawsOffset) {
-          Cat.moveClaws(currentClawsOffset)
-          localStorage.setItem('clawOffset', currentClawsOffset.toString())
-        }
-
-        Cat.move((ev.clientX - Cat.tail.clientWidth / 2) / 2)
-      }
-    }
     const upHandler = () => {
-      console.log('up')
       document.removeEventListener('pointermove', moveHandler)
       document.removeEventListener('pointerup', upHandler)
 
@@ -88,12 +66,42 @@ const onClickHandler = (event) => {
       Cat.goBack()
     }
 
+    document.addEventListener('pointerup', upHandler)
+    const moveHandler = (ev) => {
+      // Смещение указателя относительно точки клика
+      const pointerOffset = ev.clientX - event.clientX
+
+      // Предел смещения кота
+      let isOffsetLimit = pointerOffset > Cat.el.clientWidth * 2.5 // 2.5 ширины кота
+      if (document.documentElement.clientWidth < 500) {
+        isOffsetLimit = pointerOffset > Cat.el.clientWidth * 1.5
+      }
+      // Если предел смещения не достигнут
+      if (!isOffsetLimit) {
+        const savedClawsOffset = Number(localStorage.getItem('clawOffset')) ?? null
+        let catPeeking = Cat.el.clientWidth * 0.36  // 36%, на которые выглядывает хвост кота
+        let decelerationFactor = 0.5 // Коэффициент отрицательно приращения позиции кота
+
+        if (document.documentElement.clientWidth < 500) {
+          decelerationFactor = 1
+          catPeeking = Cat.el.clientWidth * -0.35
+        }
+        const currentClawsOffset = (pointerOffset - Cat.el.clientWidth - catPeeking) * decelerationFactor
+
+        // Если нужно сместить когти
+        if (!savedClawsOffset || savedClawsOffset < currentClawsOffset) {
+          Cat.moveClaws(currentClawsOffset)
+          localStorage.setItem('clawOffset', currentClawsOffset.toString())
+        }
+        Cat.move(pointerOffset * decelerationFactor)
+      }
+    }
+
     Cat.ready()
     document.addEventListener('pointermove', moveHandler)
   }
 
 
-  console.log(event.target)
   if (dataType === 'fix-claws') {
     Cat.fixClawsPath()
   }
