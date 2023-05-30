@@ -147,5 +147,19 @@
   95% {
     transform: rotateZ(0) translateX(0);
   }
+}
 
+@keyframes tail-shake {
+  0% {
+    transform: rotate(0);
+  }
+  10% {
+    transform: rotate(2deg);
+  }
+  20% {
+    transform: rotate(-1deg);
+  }
+  30% {
+    transform: rotate(0);
+  }
 }

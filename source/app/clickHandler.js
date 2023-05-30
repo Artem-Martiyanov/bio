@@ -10,6 +10,7 @@ import Electrician from '../components/electrician';
 import Switcher from '../components/switcher';
 import Lamp from '../components/lamp';
 import Works from '../components/works';
+import Cat from '../components/cat';
 
 let switchCount = 0
 
@@ -52,8 +53,43 @@ const onClickHandler = (event) => {
       })
     }
   }
+
+
+  if (dataType === 'cat-tail') {
+    const moveHandler = (ev) => {
+      document.addEventListener('pointerup', upHandler)
+
+      // Предел смещения кота
+      const isOffsetLimit = ev.clientX > Cat.el.clientWidth * 2
+
+      // Если предел смещения не достигнут
+      if (!isOffsetLimit) {
+        const savedClawsOffset = Number(localStorage.getItem('clawOffset')) ?? null
+        const currentClawsOffset = (ev.clientX - Cat.el.clientWidth * 1.25) / 2
+
+        // Если нужно сместить когти
+        if (!savedClawsOffset || savedClawsOffset < currentClawsOffset) {
+          Cat.moveClaws(currentClawsOffset)
+          localStorage.setItem('clawOffset', currentClawsOffset.toString())
+        }
+
+        Cat.move((ev.clientX - Cat.tail.clientWidth / 2) / 2)
+      }
+    }
+    const upHandler = () => {
+      document.removeEventListener('pointermove', moveHandler)
+      document.removeEventListener('pointerup', upHandler)
+
+      // Возвращаем кота
+      Cat.goBack()
+    }
+
+    Cat.ready()
+    document.addEventListener('pointermove', moveHandler)
+  }
+
 }
 
 export function initClickHandle() {
-  document.addEventListener('mousedown', onClickHandler)
+  document.addEventListener('pointerdown', onClickHandler)
 }
