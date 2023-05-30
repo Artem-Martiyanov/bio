@@ -5,13 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta name="description" content="Автор: Артём Мартиянов, Категория: Мои работы и проекты.">
-  <title>О себе</title>
+  <title>Работы</title>
   <link rel="icon" href="favicon.ico"> <!-- 32×32 -->
   <link rel="icon" href="./images/favicons/icon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="./images/favicons/apple.png"> <!-- 180×180 -->
   <link rel="manifest" href="manifest.webmanifest">
 </head>
-<body class="page about-page">
+<body class="page page--code-bg reviews-page">
 <header class="page__header header">
   <div class="container header__container">
     <a href="index.html" class="header__logo">
@@ -29,10 +29,10 @@
             <a href="works.html" class="nav__link">Работы</a>
           </li>
           <li class="nav__item">
-            <a class="nav__link nav__link--current">О себе</a>
+            <a href="about.html" class="nav__link">О себе</a>
           </li>
           <li class="nav__item">
-            <a href="reviews.html" class="nav__link">Отзывы</a>
+            <a class="nav__link nav__link--current">Отзывы</a>
           </li>
         </ul>
         <ul class="nav__social social">
@@ -65,13 +65,21 @@
     </nav>
   </div>
 </header>
-<main class="page__main">
-  <div class="container">
-    <h1>Обо мне</h1>
-    <p>Пока на этом всё</p>
-  </div>
+<main class="page__main reviews-page__main">
+  <section class="container reviews-page__container">
+    <h1 class="page__title">Отзывы</h1>
+    <div class="claws"></div>
+    <div class="reviews-page__cat cat cat--animated">
+      <div class="cat__touch-box" data-type="cat-tail">
+        <span class="visually-hidden">Хвост кота.</span>
+      </div>
+    </div>
+    <p class="page__subtitle">Буду признателен отзыву об этом сайте :)</p>
+  </section>
 </main>
-
-
 </body>
 </html>
+
+
+
+

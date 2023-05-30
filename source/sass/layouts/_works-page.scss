@@ -4,41 +4,27 @@
   position: relative;
   width: 100%;
   padding-bottom: 150px;
-  
-  &:before {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 50%;
-    height: 100vh;
-    content: "";
-    opacity: 0.05;
-    background-image: url("../images/code-bg.png");
-    background-image: image-set(
-        url("../images/code-bg.webp") 1x,
-        url("../images/code-bg.png") 1x);
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-  
+
+
+
   &__container {
     position: relative;
   }
-  
+
   &__main {
     position: relative;
   }
-  
+
   &__lamp {
     position: absolute;
     top: 40px;
     right: 70%;
   }
-  
+
   &__switcher {
     position: absolute;
     bottom: -10%;
-    
+
     &::after {
       position: absolute;
       bottom: 120%;
@@ -56,7 +42,7 @@
       background-size: contain;
     }
   }
-  
+
   &__electrician {
     position: fixed;
     z-index: 50;
@@ -66,7 +52,7 @@
     height: 40vh;
     transform-origin: 0 100%;
     //visibility: hidden;
-    
+
     &--shown {
       animation-name: electrician-shown;
       animation-duration: 4s;

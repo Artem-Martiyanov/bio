@@ -9,16 +9,52 @@
   margin: 0;
   color: $primary-font-color;
   background-color: $g-dark;
-  
+
   &__main {
     margin-top: 90px;
   }
-  
+
   &__title {
     font-size: min(max(4rem, 40px), 80px);
     position: relative;
     margin: 0;
     padding: 2em 0 2em 30%;
     color: $g-light;
+  }
+
+  &__subtitle {
+    font-size: min(max(1.5rem, 15px), 35px);
+    margin: 0;
+    padding: 0 0 2em 30%;
+    color: $g-light;
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: -40px;
+      border-radius: 5px;
+      height: 2px;
+      width: 15em;
+      background: rgba($g-green, 0.5);
+    }
+  }
+
+  &--code-bg {
+    &:before {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 50%;
+      height: 100vh;
+      content: "";
+      opacity: 0.05;
+      background-image: url("../images/code-bg.png");
+      background-image: image-set(
+          url("../images/code-bg.webp") 1x,
+          url("../images/code-bg.png") 1x);
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
   }
 }

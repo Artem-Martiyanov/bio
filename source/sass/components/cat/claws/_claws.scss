@@ -1,0 +1,9 @@
+.claws {
+  background: url("../images/claws.png") no-repeat right;
+  background-size: contain;
+  position: absolute;
+  top: 25vh;
+  right: 100%;
+  width: max(50vw, 280px);
+  height: max(20vw, 100px);
+}
