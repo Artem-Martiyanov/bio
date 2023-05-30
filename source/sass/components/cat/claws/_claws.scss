@@ -1,9 +1,15 @@
 .claws {
-  background: url("../images/claws.png") no-repeat right;
+  background-image: url("../images/claws.png");
+  background-image: image-set(
+      url("../images/claws.webp") 1x,
+      url("../images/claws.png") 1x);
+  background-repeat: no-repeat;
+  background-position: right;
   background-size: contain;
-  position: absolute;
+  position: fixed;
   top: 25vh;
   right: 100%;
   width: max(50vw, 280px);
   height: max(20vw, 100px);
+  touch-action: none;
 }
