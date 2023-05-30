@@ -1,1 +1,5 @@
-export {default as works} from './works'
+/**
+ * Реэкспорт модулей
+ */
+
+export {default as works} from './works/works'

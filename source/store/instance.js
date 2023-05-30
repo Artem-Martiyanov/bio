@@ -1,3 +1,7 @@
+/**
+ * Инстанс Store для глобального доступа
+ */
+
 import Store from './store';
 
 const store = new Store()
