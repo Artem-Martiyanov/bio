@@ -4,9 +4,8 @@
   position: fixed;
   z-index: 70;
   top: 25vh;
-  left: min(-40%, -249px);
-  width: max(50vw, 280px);
-
+  left: -36%;
+  width: calc(max(20vw, 100px) * 2.2875);
   height: max(20vw, 100px);
   user-select: none;
   background-image: url("../images/cat.png");
@@ -33,15 +32,14 @@
   &__touch-box {
     position: absolute;
     top: 50%;
-    right: 7%;
-    width: 12%;
+    right: 5%;
+    width: 15%;
     height: max(5.5vw, 30px);
     cursor: pointer;
     transform: translateY(-50%);
-    //background-color: rgba(255, 0, 0, 0.3);
   }
 
   @media (max-width: $tablet-width) {
-    left: min(-40%, -229px);
+    left: min(-36%, -178px);
   }
 }
