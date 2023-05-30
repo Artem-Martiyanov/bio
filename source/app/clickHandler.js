@@ -56,8 +56,11 @@ const onClickHandler = (event) => {
 
 
   if (dataType === 'cat-tail') {
+    document.ondragstart = () => false
     const moveHandler = (ev) => {
       document.addEventListener('pointerup', upHandler)
+
+      const pointerOffsetXPercent = ev.clientX / document.documentElement.clientWidth * 100
 
       // Предел смещения кота
       const isOffsetLimit = ev.clientX > Cat.el.clientWidth * 2
@@ -77,6 +80,7 @@ const onClickHandler = (event) => {
       }
     }
     const upHandler = () => {
+      console.log('up')
       document.removeEventListener('pointermove', moveHandler)
       document.removeEventListener('pointerup', upHandler)
 
@@ -86,6 +90,12 @@ const onClickHandler = (event) => {
 
     Cat.ready()
     document.addEventListener('pointermove', moveHandler)
+  }
+
+
+  console.log(event.target)
+  if (dataType === 'fix-claws') {
+    Cat.fixClawsPath()
   }
 
 }

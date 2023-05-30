@@ -25,6 +25,11 @@ const Cat = {
   moveClaws: function (position) {
     this.claws.style.transform = `translateX(${position}px)`
   },
+
+  fixClawsPath: function () {
+    localStorage.removeItem('clawOffset')
+    this.claws.style.transform = 'translateX(0)'
+  }
 }
 
 export default Cat

@@ -8,7 +8,12 @@
     "build": "cross-env NODE_ENV=production webpack --mode production",
     "start": "cross-env NODE_ENV=development webpack serve",
     "lint": "eslint source/",
-    "lintfix": "eslint source/ --fix"
+    "lintfix": "eslint source/ --fix",
+    "pull": "git pull origin master",
+    "add": "git add .docs/",
+    "commit": "git commit -am 'deploy'",
+    "push": "git push origin gh-page",
+    "deploy": "npm run pull && npm run build && npm run add && npm run commit && npm run push"
   },
   "repository": {
     "type": "git",
