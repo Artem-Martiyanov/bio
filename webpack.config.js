@@ -84,7 +84,7 @@ module.exports = {
   mode: process.env.NODE_ENV,
   entry: path.resolve(__dirname, 'source/index.js'),
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'docs'),
     filename: '[name].bundle.js',
     clean: true
   },
@@ -93,7 +93,7 @@ module.exports = {
     watchFiles: path.join(__dirname, 'source'),
     hot: true,
     static: {
-      directory: path.join(__dirname, 'dist')
+      directory: path.join(__dirname, 'docs')
     },
     // open: {
     //   app: {
@@ -122,19 +122,19 @@ module.exports = {
     new CopyWebpackPlugin({
       patterns: [{
         from: path.resolve(__dirname, 'source/images/'),
-        to: path.resolve(__dirname, 'dist/images')
+        to: path.resolve(__dirname, 'docs/images')
       },
         {
           from: path.resolve(__dirname, 'source/fonts/'),
-          to: path.resolve(__dirname, 'dist/fonts')
+          to: path.resolve(__dirname, 'docs/fonts')
         },
         {
           from: path.resolve(__dirname, 'source/favicon.ico'),
-          to: path.resolve(__dirname, 'dist/')
+          to: path.resolve(__dirname, 'docs/')
         },
         {
           from: path.resolve(__dirname, 'source/manifest.webmanifest'),
-          to: path.resolve(__dirname, 'dist/')
+          to: path.resolve(__dirname, 'docs/')
         }
       ]
     }),
