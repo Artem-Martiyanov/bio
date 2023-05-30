@@ -24,9 +24,8 @@ const onClickHandler = (event) => {
     Burger.toggle()
   }
 
-  if (dataType === 'lamp-switcher') {
+  if (dataType === 'switcher-control') {
     Lamp.toggle()
-
     if (switchCount >= 1) {
       Electrician.show()
     }
