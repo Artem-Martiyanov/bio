@@ -14,7 +14,6 @@ const Form = {
 
       const formData = new FormData(this.el)
 
-
       // Получаем данные из формы
       const data = Object.fromEntries(formData.entries())
 
@@ -34,26 +33,22 @@ const Form = {
 
   validate: function (formElements) {
     const submitButton = this.el.querySelector('button[type=submit]')
-
+    const isValid = (input, link) => {
+      if (input.value.trim() !== '' && !input.value.includes(link)) {
+        input.parentNode.classList.add('textfield--invalid')
+        return true
+      } else {
+        input.parentNode.classList.remove('textfield--invalid')
+        return false
+      }
+    }
+    const isTelegramValid = isValid(formElements.userTelegram, 'https://t.me/')
+    const isVkontakteValid = isValid(formElements.userVkontakte, 'https://vk.com/')
     const isUserNameValid = formElements.userName.value.trim() !== ''
     const isContentValid = formElements.content.value.trim() !== ''
     const isRatingValid = formElements.rating.value !== ''
 
-    submitButton.disabled = !(isUserNameValid && isContentValid && isRatingValid && this.validateLinks(formElements))
+    submitButton.disabled = !(isUserNameValid && isContentValid && isRatingValid && !isTelegramValid && !isVkontakteValid)
   },
-
-  validateLinks: function (formElements) {
-    const isValid = (input, link) => {
-      if (input.value.trim() !== '' && !input.value.includes(link)) {
-        input.parentNode.classList.add('textfield--invalid')
-        return false
-      } else {
-        input.parentNode.classList.remove('textfield--invalid')
-        return true
-      }
-    }
-    return (isValid(formElements.userTelegram, 'https://t.me/') && isValid(formElements.userVkontakte, 'https://vk.com/'))
-  }
-
 }
 export default Form
