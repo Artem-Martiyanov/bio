@@ -7,11 +7,11 @@ export const Review = (params) => {
         <header class="reviews__header">
           <h2 class="reviews__title">${params?.userName}</h2>
           ${params.userCompany && `<p class="reviews__company">${params?.userCompany}</p>`}
-          ${isMyReview(params.id) && `
+          ${isMyReview(params.id) ? `
           <button class="reviews__remove" type="button" title="Удалить." data-type="delete-review" data-id="${params.id}">
             <span class="visually-hidden">Удалить отзыв.</span>
           </button>
-          `}
+          ` : ''}
         </header>
         <p class="reviews__content">${params?.content}</p>
         <footer class="reviews__footer">
