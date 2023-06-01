@@ -1,0 +1,71 @@
+@use "../../../variables" as *;
+
+.textarea {
+  position: relative;
+  display: block;
+  width: 100%;
+  min-height: 150px;
+
+  &__input {
+    font: inherit;
+    font-size: 0.9em;
+    display: block;
+    width: 100%;
+    padding: 15px;
+    resize: none;
+    transition: background-color $animation-duration ease;
+    color: $g-light;
+    border: none;
+    border-right: 2px solid rgba($g-green, 0.2);
+    border-bottom: 2px solid rgba($g-green, 0.2);
+    border-top-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    outline: none;
+    background: none;
+
+    background: rgba($g-light, 0.005);
+
+    &:focus {
+      background: rgba($g-light, 0.05);
+    }
+
+    &:not(:placeholder-shown) {
+      border-right: 2px solid rgba($g-green, 0.8);
+      border-bottom: 2px solid rgba($g-green, 0.8);
+    }
+  }
+
+  &::before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    content: "";
+    transition: transform 0.4s ease;
+    transform: scaleY(0);
+    transform-origin: 0 100%;
+    background-color: $g-green;
+  }
+
+  &::after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    content: "";
+    transition: transform 0.4s ease;
+    transform: scaleX(0);
+    transform-origin: 100% 0;
+    background-color: $g-green;
+  }
+
+  &:focus-within::before {
+    transform: scaleY(1);
+  }
+
+  &:focus-within::after {
+    transform: scaleX(1);
+  }
+}

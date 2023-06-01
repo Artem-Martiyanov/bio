@@ -8,6 +8,8 @@
   width: calc(max(20vw, 100px) * 2.2875);
   height: max(20vw, 100px);
   user-select: none;
+  pointer-events: none;
+  opacity: 0.5;
   background-image: url("../images/cat.png");
   background-image: image-set(
       url("../images/cat.webp") 1x,
@@ -17,16 +19,16 @@
   background-size: contain;
   touch-action: none;
 
-  &--slow {
-    transition: transform 1s linear;
-  }
-
   &--animated {
     animation-name: tail-shake;
     animation-duration: 5s;
     animation-timing-function: linear;
     animation-delay: 2s;
     animation-iteration-count: infinite;
+  }
+
+  &--slow {
+    transition: transform 1s linear;
   }
 
   &__touch-box {
@@ -37,6 +39,11 @@
     height: max(5.5vw, 30px);
     cursor: pointer;
     transform: translateY(-50%);
+    pointer-events: auto;
+  }
+
+  &:active {
+    opacity: 1;
   }
 
   @media (max-width: $tablet-width) {

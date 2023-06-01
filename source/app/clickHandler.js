@@ -11,6 +11,8 @@ import Switcher from '../components/switcher';
 import Lamp from '../components/lamp';
 import Works from '../components/works';
 import Cat from '../components/cat';
+import Reviews from '../components/reviews';
+import Form from '../components/form';
 
 let switchCount = 0
 
@@ -104,6 +106,12 @@ const onClickHandler = (event) => {
 
   if (dataType === 'fix-claws') {
     Cat.fixClawsPath()
+  }
+
+  if (dataType === 'delete-review') {
+    const id = event.target.dataset.id
+
+    store.actions.reviews.remove(id).then(() => Reviews.render())
   }
 
 }

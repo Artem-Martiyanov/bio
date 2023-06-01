@@ -10,3 +10,5 @@ initClickHandle()
 initScrollHandle()
 
 App.render()
+
+

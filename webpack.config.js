@@ -104,8 +104,13 @@ module.exports = {
     compress: true,
     port: 3000,
     historyApiFallback: true,
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
+      "Access-Control-Allow-Headers": "X-Requested-With, content-type, Authorization"
+    },
     // proxy: {
-    //   '/**': {
+    //   '/': {
     //     target: 'https://portfolio-ee6bc-default-rtdb.europe-west1.firebasedatabase.app',
     //     secure: false,
     //     changeOrigin: true

@@ -1,0 +1,60 @@
+@use "../../variables" as *;
+
+.form {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+
+  &__group {
+    margin: 0;
+    padding: 50px 0 65px;
+    border: none;
+    border-top: 3px solid rgba($g-green, 0.6);
+
+    @media (max-width: $tablet-width) {
+      padding: 30px 0 45px;
+    }
+  }
+
+  &__legend {
+    font-size: 18px;
+    font-weight: 700;
+    padding-right: 30px;
+    color: rgba($g-green, 0.8);
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0 0 0 10%;
+    list-style: none;
+    gap: 30px;
+
+    @media (max-width: $tablet-width) {
+      padding: 0;
+    }
+  }
+
+  &__item {
+    flex: 1;
+    color: $g-light;
+  }
+
+  &__textarea {
+    padding-left: 10%;
+
+    @media (max-width: $tablet-width) {
+      padding: 0;
+    }
+  }
+
+  &__footer {
+    display: flex;
+  }
+
+  &__button {
+    margin-left: auto;
+  }
+
+}
