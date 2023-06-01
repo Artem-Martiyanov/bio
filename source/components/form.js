@@ -6,8 +6,7 @@ const Form = {
 
     this.el.addEventListener('input', () => {
       // Валидация
-      this.validateRequiredFields(formElements)
-      this.validateLinks(formElements)
+      this.validate(formElements)
     })
 
     this.el.addEventListener('submit', (event) => {
@@ -33,31 +32,27 @@ const Form = {
     })
   },
 
-  validateRequiredFields: function (formElements) {
+  validate: function (formElements) {
     const submitButton = this.el.querySelector('button[type=submit]')
 
     const isUserNameValid = formElements.userName.value.trim() !== ''
     const isContentValid = formElements.content.value.trim() !== ''
     const isRatingValid = formElements.rating.value !== ''
 
-    submitButton.disabled = !(isUserNameValid && isContentValid && isRatingValid)
+    submitButton.disabled = !(isUserNameValid && isContentValid && isRatingValid && this.validateLinks(formElements))
   },
 
   validateLinks: function (formElements) {
-    const submitButton = this.el.querySelector('button[type=submit]')
-
-    const validate = (input, link) => {
+    const isValid = (input, link) => {
       if (input.value.trim() !== '' && !input.value.includes(link)) {
-        submitButton.disabled = true
         input.parentNode.classList.add('textfield--invalid')
+        return false
       } else {
-        submitButton.disabled = false
         input.parentNode.classList.remove('textfield--invalid')
+        return true
       }
     }
-
-    validate(formElements.userTelegram, 'https://t.me/')
-    validate(formElements.userVkontakte, 'https://vk.com/')
+    return (isValid(formElements.userTelegram, 'https://t.me/') && isValid(formElements.userVkontakte, 'https://vk.com/'))
   }
 
 }
