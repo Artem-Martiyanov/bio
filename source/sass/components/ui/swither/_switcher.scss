@@ -14,7 +14,7 @@ $switch-duration: $animation-duration; // продолжительность а�
   display: block;
   width: $width;
   height: $height;
-  
+
   &__control {
     position: relative;
     display: block;
@@ -23,8 +23,8 @@ $switch-duration: $animation-duration; // продолжительность а�
     cursor: pointer;
     transition: background-color $switch-duration ease;
     border-radius: 150px;
-    background-color: $bg-color-active;
-    
+    background-color: $bg-color-disable;
+
     &::before {
       position: absolute;
       top: calc($thumb-indent / 2);
@@ -35,25 +35,26 @@ $switch-duration: $animation-duration; // продолжительность а�
       transition: transform $switch-duration ease, opacity $switch-duration ease;
       border-radius: 50%;
       background-color: $thumb-color;
+      transform: translateX(calc(($width * -1) + $height));
     }
-    
+
     &:hover::before {
       opacity: 0.8;
     }
   }
-  
-  &__input:checked + &__control {
-    background-color: $bg-color-disable;
-    
+
+  &__input:checked ~ &__control {
+    background-color: $bg-color-active;
+
     &::before {
-      transform: translateX(calc(($width * -1) + $height));
+      transform: translateX(0);
     }
   }
-  
+
   &:focus-within &__control::before {
     opacity: 0.8;
   }
-  
+
   &__input:disabled + &__control {
     cursor: auto;
     opacity: 0.3;

@@ -1,0 +1,190 @@
+@use "../../variables" as *;
+
+.reviews {
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    color: $g-light;
+    text-shadow: 1px 1px 1px $g-dark;
+    gap: 40px;
+  }
+
+  &__item {
+    line-height: 1.5;
+    position: relative;
+    padding: 10px 15px 15px 25px;
+    border-radius: 5px;
+    background: rgba($g-light, 0.03);
+    box-shadow: 0 0 5px 10px rgba($g-light, 0.02);
+  }
+
+  &__remove {
+    position: absolute;
+    top: 2px;
+    right: -10px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    opacity: 0.5;
+    border: none;
+    background: none;
+
+    &::before {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      bottom: 5px;
+      left: 5px;
+      content: "";
+      transition: background-color $animation-duration ease;
+      background: $g-light;
+      mask-image: url("../images/stack.svg#trash");
+    }
+
+    &:hover,
+    &:focus {
+      opacity: 1;
+
+      &::before {
+        background: $g-green;
+      }
+    }
+
+    &:active {
+      opacity: $down-opacity;
+    }
+  }
+
+  &__header {
+    position: relative;
+    margin: 0 0 1.5em;
+    padding-right: 30px;
+  }
+
+  &__title {
+    font-size: min(max(1.5rem, 22px), 30px);
+    margin: 0 0 0.2em;
+  }
+
+  &__company {
+    margin: 0;
+    color: $g-green;
+  }
+
+  &__content {
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    position: relative;
+    margin: 0 0 30px;
+    padding-left: 20px;
+    white-space: pre-wrap;
+
+    &::before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 3px;
+      height: 100%;
+      content: "";
+      border-radius: 5px;
+      background: $g-green;
+    }
+  }
+
+  &__footer {
+    display: flex;
+    align-items: center;
+  }
+
+  &__social {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    gap: 10px;
+  }
+
+  &__social-link {
+    position: relative;
+    display: block;
+    width: 30px;
+    height: 30px;
+
+    &::before {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      content: "";
+      transition: background-color $animation-duration ease;
+      background: rgba($g-light, 0.8);
+    }
+
+    &--vkontakte::before {
+      mask-image: url("../images/stack.svg#vkontakte");
+    }
+
+    &--telegram::before {
+      mask-image: url("../images/stack.svg#telegram");
+    }
+
+    &:hover,
+    &:focus {
+      &::before {
+        background-color: $g-green;
+      }
+    }
+
+    &:active {
+      opacity: $down-opacity;
+    }
+  }
+
+  &__rating {
+    font-weight: 700;
+    margin-left: auto;
+    color: $g-green;
+  }
+
+  &__rating-max {
+    color: $g-light;
+  }
+
+  &__date {
+    font-size: 12px;
+    position: absolute;
+    right: 15px;
+    bottom: -5px;
+    color: rgba($g-light, 0.1);
+  }
+
+  &__form {
+    margin-bottom: 150px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

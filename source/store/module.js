@@ -10,7 +10,7 @@ class StoreModule {
   constructor(store, name) {
     this.store = store
     this.name = name
-    this.url = `https://portfolio-ee6bc-default-rtdb.europe-west1.firebasedatabase.app/${this.name}.json`
+    this.url = (path = '') => `https://portfolio-ee6bc-default-rtdb.europe-west1.firebasedatabase.app/${this.name}/${path}.json`
   }
 
   initState() {
@@ -47,7 +47,7 @@ class StoreModule {
       }
     }
     try {
-      const response = await fetch(this.url, settings)
+      const response = await fetch(this.url(), settings)
       this.setState(await response.json())
     } catch (e) {
       console.error(`Error. Method "load": ${e.message}`)
@@ -67,17 +67,17 @@ class StoreModule {
         'Content-Type': 'application/json'
       }
     }
+    this.setState({
+      ...this.getState(),
+      ...data
+    })
     try {
-      await fetch(this.url, settings)
+     return await fetch(this.url(), settings)
     } catch (e) {
       console.error(`Error. Method "upload": ${e.message}`)
       console.table(this)
       console.log(data)
     }
-    this.setState({
-      ...this.getState(),
-      ...data
-    })
   }
 
   /**
@@ -98,11 +98,44 @@ class StoreModule {
       ...newData
     })
     try {
-      return await fetch(this.url, settings)
+      return await fetch(this.url(), settings)
     } catch (e) {
       console.error(`Error. Method "update": ${e.message}`)
       console.table(this)
       console.log(newData)
+    }
+  }
+
+  /**
+   * @description Удаление данных [this.name] на сервере и в хранилище по id
+   * @param {String} id
+   * @return {Promise}
+   */
+  async remove(id) {
+    const settings = {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+    }
+    const trash = 'https://portfolio-ee6bc-default-rtdb.europe-west1.firebasedatabase.app/trash.json'
+    try {
+      await fetch(trash, {
+        method: 'POST',
+        body: JSON.stringify(this.getState()[id])
+      })
+    } catch (e) {
+      console.error(`Error. Method "post": ${e.message}`)
+      console.table(this)
+      console.log(id)
+    }
+    delete this.getState()[id]
+    try {
+      return await fetch(this.url(id), settings)
+    } catch (e) {
+      console.error(`Error. Method "delete": ${e.message}`)
+      console.table(this)
+      console.log(id)
     }
   }
 }

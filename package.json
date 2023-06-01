@@ -12,9 +12,10 @@
     "pull": "git pull origin master",
     "status": "git status",
     "commit": "git commit -am 'deploy'",
-    "push": "git push origin gh-page",
-    "checkout": "git checkout master",
-    "deploy": "npm run pull && npm run build && npm run status && npm run commit && npm run push && npm run checkout"
+    "push": "git push origin gh-pages",
+    "checkout:master": "git checkout master",
+    "checkout:gh-pages": "git checkout gh-pages",
+    "deploy": "npm run checkout:gh-pages && npm run pull && npm run build && npm run status && npm run commit && npm run push && npm run checkout"
   },
   "repository": {
     "type": "git",

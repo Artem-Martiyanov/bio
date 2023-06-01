@@ -15,6 +15,7 @@
 <header class="page__header header">
   <div class="container header__container">
     <a href="index.html" class="header__logo">
+      <span class="visually-hidden">Логотип сайта.</span>
       <b><span class="header__first-bracket">{</span>A</b>rtem<br>Martiyano<b>v<span class="header__second-bracket">}</span></b>
     </a>
     <button class="header__burger burger" data-type="burger">
@@ -36,7 +37,7 @@
           </li>
         </ul>
         <ul class="nav__social social">
-          <li class="social__item">
+          <li class="social__item" title="Мой Телеграм.">
             <a href="https://t.me/a_martiyanov" class="social__link" target="_blank">
               <span class="visually-hidden">Мой телеграмм.</span>
               <svg width="50" height="50">
@@ -44,7 +45,7 @@
               </svg>
             </a>
           </li>
-          <li class="social__item">
+          <li class="social__item" title="Мой Гитхаб.">
             <a href="https://github.com/Artem-Martiyanov" class="social__link" target="_blank">
               <span class="visually-hidden">Мой гитхаб.</span>
               <svg width="50" height="50">
@@ -52,7 +53,7 @@
               </svg>
             </a>
           </li>
-          <li class="social__item">
+          <li class="social__item" title="Мой Вконтакте.">
             <a href="https://vk.com/a_martiyanov" class="social__link" target="_blank">
               <span class="visually-hidden">Мой вконтакте.</span>
               <svg width="50" height="50">
@@ -66,7 +67,7 @@
   </div>
 </header>
 <main class="page__main reviews-page__main">
-  <section class="container reviews-page__container">
+  <section class="container">
     <h1 class="page__title">Отзывы</h1>
     <div class="claws"></div>
     <div class="reviews-page__cat cat cat--animated">
@@ -75,12 +76,67 @@
       </div>
     </div>
     <p class="page__subtitle">Буду признателен отзыву об этом сайте :)</p>
-    <button class="reviews-page__cat-reset" type="button" data-type="fix-claws">
+    <button class="reviews-page__cat-reset" type="button" data-type="fix-claws" title="Починить следы от когтей.">
       <span class="visually-hidden">Починить следы от когтей.</span>
     </button>
   </section>
-  <section class="container">
-    <h2>Здесь будет блок с комментариями</h2>
+  <section class="reviews container">
+    <form class="reviews__form form" name="review" action="https://portfolio-ee6bc-default-rtdb.europe-west1.firebasedatabase.app/reviews.json" method="post">
+      <fieldset class="form__group">
+        <legend class="form__legend">О себе:</legend>
+        <ul class="form__list">
+          <li class="form__item">
+            <label class="form__control textfield">Псевдоним:
+              <input class="textfield__input" name="userName" type="text" placeholder="Имя или ник*" required>
+            </label>
+          </li>
+          <li class="form__item">
+            <label class="form__control textfield">Компания:
+              <input class="textfield__input" name="userCompany" type="text" placeholder="Название компании, где работаете">
+            </label>
+          </li>
+        </ul>
+      </fieldset>
+      <fieldset class="form__group">
+        <legend class="form__legend">Социальные сети:</legend>
+        <ul class="form__list">
+          <li class="form__item">
+            <label class="form__control textfield">Телеграм:
+              <input class="textfield__input" name="userTelegram" type="text" placeholder="Ссылка на ваш Телеграм">
+            </label>
+          </li>
+          <li class="form__item">
+            <label class="form__control textfield">Вконтакте:
+              <input class="textfield__input" name="userVkontakte" type="text" placeholder="Ссылка на ваш Вконтакте">
+            </label>
+          </li>
+        </ul>
+      </fieldset>
+      <fieldset class="form__group">
+        <legend class="form__legend">Оценка:</legend>
+        <ul class="form__list">
+          <li class="form__item">
+            <label class="form__control textfield textfield--number">Оцените сайт*:
+              <input class="textfield__input" name="rating" type="number" min="0" max="10" placeholder="10" required>
+              <span>/ 10</span>
+            </label>
+          </li>
+        </ul>
+      </fieldset>
+      <fieldset class="form__group">
+        <legend class="form__legend">Текст отзыва:</legend>
+        <div class="form__textarea">
+          <label class="form__control textarea">
+            <span class="visually-hidden">Текст комментария.</span>
+            <textarea class="textarea__input" name="content" placeholder="Введите текст вашего комментария" cols="100" rows="10" required></textarea>
+          </label>
+        </div>
+      </fieldset>
+      <footer class="form__footer">
+        <button class="form__button button button--primary" type="submit" disabled>Отправить</button>
+      </footer>
+    </form>
+    <ul class="reviews__list"></ul>
   </section>
 </main>
 </body>

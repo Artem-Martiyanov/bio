@@ -31,3 +31,18 @@ export const convertToWebp = (url) => {
 }
 
 export const iterator = (start = 0) => () => ++start
+
+
+export const isMyReview = (id) => localStorage.getItem('reviewsId') ? localStorage.getItem('reviewsId').split(',').includes(id) : false
+
+
+export const pushReviewToLocalStorage = (id) => {
+  const reviewsId = localStorage.getItem('reviewsId')
+  if (reviewsId) {
+    const newReviewsId = reviewsId.split(',')
+    newReviewsId.push(id)
+    localStorage.setItem('reviewsId', newReviewsId.join(','))
+  } else {
+    localStorage.setItem('reviewsId', id)
+  }
+}

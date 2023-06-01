@@ -6,6 +6,7 @@
   height: 100vh;
   overflow: hidden;
   z-index: -1000;
+  touch-action: none;
 }
 
 .canvas__wrapper::after {
@@ -50,4 +51,5 @@
   display: block;
   background: gray;
   transform: rotate(0.5deg) translate(-30px, -30px);
+  touch-action: none;
 }

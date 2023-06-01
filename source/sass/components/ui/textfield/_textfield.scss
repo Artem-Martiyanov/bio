@@ -1,0 +1,93 @@
+@use "../../../variables" as *;
+
+.textfield {
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  align-items: center;
+  gap: 20px;
+
+  &__input {
+    font-family: inherit;
+    font-size: inherit;
+    width: 100%;
+    padding: 10px;
+    transition: background-color $animation-duration ease;
+    color: inherit;
+    border: none;
+    border-bottom: 2px solid rgba($g-green, 0.2);
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    outline: none;
+    background: none;
+
+    &:focus {
+      background: rgba($g-light, 0.1);
+    }
+
+    &::placeholder {
+      font-family: inherit;
+      font-size: 0.9em;
+    }
+
+    &:not(:placeholder-shown) {
+      border-bottom: 2px solid rgba($g-green, 0.8);
+    }
+
+    @media (max-width: $tablet-width) {
+      padding: 8px 10px;
+    }
+  }
+
+  &::after {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 100%;
+    height: 2px;
+    content: "";
+    transition: transform 0.4s ease;
+    transform: translateX(-50%) scaleX(0);
+    background: linear-gradient(90deg, transparent 0, $g-green 20%);
+  }
+
+  &--number {
+    width: fit-content;
+  }
+
+  &--number &__input {
+    max-width: 40px;
+    text-align: end;
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      appearance: none;
+      -webkit-appearance: none;
+    }
+  }
+
+  &:focus-within::after {
+    transform: translateX(-50%) scaleX(1);
+  }
+
+  &--invalid::after {
+    background: linear-gradient(90deg, transparent 0, red 20%);
+  }
+
+  &--invalid &__input {
+    border-bottom: 2px solid red;
+
+    &:not(:placeholder-shown) {
+      border-bottom: 2px solid red;
+    }
+  }
+
+  &:not(&--number) {
+    @media (max-width: $tablet-width) {
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 5px;
+    }
+  }
+
+}
