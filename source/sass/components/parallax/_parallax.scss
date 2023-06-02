@@ -1,0 +1,24 @@
+.parallax {
+  overflow-y: scroll;
+  height: 100vh;
+  perspective: 1px;
+
+  &__layer {
+    position: absolute;
+    inset: 0;
+
+
+    &--back {
+      transform: translateZ(-3px) scale(3.9);
+      height: 4320px;
+    }
+
+    &--middle {
+      transform: translateZ(-2px) scale(2.9);
+    }
+
+    &--front {
+      transform: translateZ(0);
+    }
+  }
+}

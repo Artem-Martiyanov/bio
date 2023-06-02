@@ -1,6 +1,4 @@
 import meowFile from '../audio/meow.mp3'
-
-
 const meow = new Audio(meowFile)
 
 const Cat = {
