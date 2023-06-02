@@ -2,7 +2,7 @@
 
 .cat {
   position: fixed;
-  z-index: 70;
+  z-index: 91;
   top: 25vh;
   left: -36%;
   width: calc(max(20vw, 100px) * 2.2875);
@@ -18,6 +18,7 @@
   background-position: right;
   background-size: contain;
   touch-action: none;
+  transform: translateX(0);
 
   &--animated {
     animation-name: tail-shake;
@@ -25,10 +26,15 @@
     animation-timing-function: linear;
     animation-delay: 2s;
     animation-iteration-count: infinite;
+    transition: transform 2s ease;
   }
 
   &--slow {
     transition: transform 1s linear;
+  }
+
+  &--init {
+    transform: translateX(7%);
   }
 
   &__touch-box {

@@ -1,0 +1,39 @@
+@use "../../variables" as *;
+
+.popup {
+  position: fixed;
+  bottom: 2vh;
+  right: 2vw;
+  color: $g-light;
+  min-width: 200px;
+  min-height: 100px;
+  background: #656565;
+  border-radius: 5px;
+  transform: translateY(100%);
+  opacity: 0;
+
+  &__inner {
+    padding: 15px;
+  }
+
+  &__title {
+    margin: 0 0 0.5em;
+  }
+
+  &__text {
+    margin: 0;
+    padding-left: 20px;
+  }
+
+  &__text-decor {
+    font-weight: 700;
+    font-size: 28px;
+    color: $g-green;
+  }
+
+  &--show {
+    animation-name: popup-show;
+    animation-duration: 3s;
+    animation-timing-function: linear;
+  }
+}

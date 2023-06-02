@@ -15,7 +15,7 @@
     "push": "git push origin gh-pages",
     "checkout:master": "git checkout master",
     "checkout:gh-pages": "git checkout gh-pages",
-    "deploy": "npm run checkout:gh-pages && npm run pull && npm run build && npm run status && npm run commit && npm run push && npm run checkout"
+    "deploy": "npm run checkout:gh-pages && npm run pull && npm run build && npm run status && npm run commit && npm run push && npm run checkout:master"
   },
   "repository": {
     "type": "git",

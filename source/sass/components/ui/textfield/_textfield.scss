@@ -35,6 +35,13 @@
       border-bottom: 2px solid rgba($g-green, 0.8);
     }
 
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus {
+      transition: background-color 5000s ease-in-out 0s;
+      -webkit-text-fill-color: $g-light;
+    }
+
     @media (max-width: $tablet-width) {
       padding: 8px 10px;
     }
@@ -54,17 +61,23 @@
 
   &--number {
     width: fit-content;
+
     @media (max-width: $tablet-width) {
-      width: 100%;
+      span {
+        display: inline-block;
+        min-width: 30px;
+      }
     }
   }
 
   &--number &__input {
     max-width: 40px;
     text-align: end;
+    -moz-appearance: textfield;
 
     &::-webkit-outer-spin-button,
     &::-webkit-inner-spin-button {
+      margin: 0;
       appearance: none;
       -webkit-appearance: none;
     }
@@ -79,10 +92,10 @@
   }
 
   &--invalid &__input {
-    border-bottom: 2px solid red;
+    border-bottom: 2px solid rgba(red, 0.2);
 
     &:not(:placeholder-shown) {
-      border-bottom: 2px solid red;
+      border-bottom: 2px solid rgba(red, 0.8);
     }
   }
 

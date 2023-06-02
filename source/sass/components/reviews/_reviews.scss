@@ -2,10 +2,16 @@
 
 .reviews {
 
+  &__caption {
+    margin: 0 0 2em;
+    color: $g-light;
+    text-align: center;
+  }
+
   &__list {
     display: flex;
     flex-direction: column;
-    margin: 0;
+    margin: 0 0 70px;
     padding: 0;
     list-style: none;
     color: $g-light;
@@ -165,5 +171,9 @@
 
   &__form {
     margin-bottom: 150px;
+  }
+
+  &__popup {
+    min-width: 250px;
   }
 }

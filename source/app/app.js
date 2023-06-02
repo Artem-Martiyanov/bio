@@ -14,13 +14,14 @@ const App = {
     }
 
     if (Reviews.el) {
-      store.actions.reviews.load().then(() => Reviews.render())
+      store.actions.reviews.load()
+        .then(() => Reviews.render())
 
       Form.listen((data) => {
         store.actions.reviews.upload(data)
-          .then((response) => {
-            response.json().then(id => pushReviewToLocalStorage(id.name))
-            return store.actions.reviews.load()
+          .then(id => {
+            pushReviewToLocalStorage(id)
+            return store.actions.reviews.load(id)
           })
           .then(() => Reviews.render())
       })

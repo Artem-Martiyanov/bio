@@ -34,6 +34,13 @@
       border-right: 2px solid rgba($g-green, 0.8);
       border-bottom: 2px solid rgba($g-green, 0.8);
     }
+
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus {
+      transition: background-color 5000s ease-in-out 0s;
+      -webkit-text-fill-color: $g-light;
+    }
   }
 
   &::before {
@@ -60,6 +67,16 @@
     transform: scaleX(0);
     transform-origin: 100% 0;
     background-color: $g-green;
+  }
+
+  &--invalid &__input {
+    border-right: 2px solid rgba(red, 0.2);
+    border-bottom: 2px solid rgba(red, 0.2);
+  }
+
+  &--invalid::before,
+  &--invalid::after {
+    background-color: red;
   }
 
   &:focus-within::before {

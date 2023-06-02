@@ -39,7 +39,7 @@ class StoreModule {
   /**
    * @description Загрузка и установка в хранилище [this.name] данных ИЗ сервера
    */
-  async load() {
+  async load(id = '') {
     const settings = {
       method: 'GET',
       headers: {
@@ -47,8 +47,19 @@ class StoreModule {
       }
     }
     try {
-      const response = await fetch(this.url(), settings)
-      this.setState(await response.json())
+      const response = await fetch(this.url(id), settings)
+      const data = await response.json()
+
+      id === '' ?
+        this.setState(data)
+        :
+        this.setState({
+          ...this.getState(),
+          [id]: data
+        })
+
+
+      return data
     } catch (e) {
       console.error(`Error. Method "load": ${e.message}`)
       console.table(this)
@@ -67,12 +78,15 @@ class StoreModule {
         'Content-Type': 'application/json'
       }
     }
-    this.setState({
-      ...this.getState(),
-      ...data
-    })
+
     try {
-     return await fetch(this.url(), settings)
+      const response = await fetch(this.url(), settings)
+      const id = await response.json()
+      this.setState({
+        ...this.getState(),
+        [id.name]: data
+      })
+      return id.name
     } catch (e) {
       console.error(`Error. Method "upload": ${e.message}`)
       console.table(this)
