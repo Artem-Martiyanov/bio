@@ -12,7 +12,7 @@
   <link rel="manifest" href="manifest.webmanifest">
 </head>
 <body class="page about-page">
-<header class="page__header header">
+<header class="page__header about-page__header header">
   <div class="container header__container">
     <a href="index.html" class="header__logo">
       <span class="visually-hidden">Логотип сайта.</span>
@@ -66,10 +66,113 @@
     </nav>
   </div>
 </header>
-<main class="page__main">
-  <div class="container" style="display: flex; justify-content: center">
-    <h1 style="color: white; margin-top: 10vh;">Идут ремонтные работы...</h1>
-  </div>
+<main class="page__main about-page__main parallax">
+  <section class="about-page__layer parallax__layer parallax__layer--back test">
+    <!--  Звёзды -->
+    <div class="about-page__star about-page__star--first tooltip">
+      <div class="about-page__star-wrapper">
+        <picture>
+          <source srcset="./images/star.webp">
+          <img class="about-page__star-image" src="./images/star.png" alt="Звезда." width="700" height="700">
+        </picture>
+      </div>
+      <div class="tooltip__content"></div>
+    </div>
+
+    <div class="about-page__star about-page__star--second tooltip">
+      <div class="about-page__star-wrapper">
+        <picture>
+          <source srcset="./images/star2.webp">
+          <img class="about-page__star-image" src="./images/star2.png" alt="Звезда." width="640" height="480">
+        </picture>
+      </div>
+      <div class="tooltip__content"></div>
+    </div>
+
+    <div class="about-page__star about-page__star--third tooltip">
+      <div class="about-page__star-wrapper">
+        <picture>
+          <source srcset="./images/star3.webp">
+          <img class="about-page__star-image" src="./images/star3.png" alt="Звезда." width="600" height="338">
+        </picture>
+      </div>
+      <div class="tooltip__content"></div>
+    </div>
+
+
+  </section>
+  <section class="about-page__layer parallax__layer parallax__layer--middle">
+    <!--    Контент   -->
+
+    <div class="about-page__content container">
+
+      <p class="about-page__content-text">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. A corporis esse impedit. Assumenda at
+        expedita
+        iusto nesciunt nobis numquam odit optio quibusdam quidem sequi, sint unde, vel voluptatem! Aliquid
+        architecto cumque dicta distinctio eligendi eos facilis similique? Ab asperiores, autem corporis
+        dignissimos dolor exercitationem fugit id incidunt laudantium magnam maiores obcaecati, pariatur
+        praesentium quis quisquam recusandae tempore vero voluptas voluptatibus voluptatum. Assumenda debitis
+        ea
+        facilis quisquam, sunt tempora tenetur. Blanditiis dolor facilis perspiciatis placeat voluptas!
+        Aliquam,
+        consequatur dolorem ex illum ipsam maiores minima necessitatibus, omnis praesentium provident
+        recusandae
+        sint. A aut corporis eveniet exercitationem fugit magni natus nesciunt quaerat sint.
+      </p>
+      <p class="about-page__content-text">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. A corporis esse impedit. Assumenda at
+        expedita
+        iusto nesciunt nobis numquam odit optio quibusdam quidem sequi, sint unde, vel voluptatem! Aliquid
+        architecto cumque dicta distinctio eligendi eos facilis similique? Ab asperiores, autem corporis
+        dignissimos dolor exercitationem fugit id incidunt laudantium magnam maiores obcaecati, pariatur
+        praesentium quis quisquam recusandae tempore vero voluptas voluptatibus voluptatum. Assumenda debitis
+        ea
+        facilis quisquam, sunt tempora tenetur. Blanditiis dolor facilis perspiciatis placeat voluptas!
+        Aliquam,
+        consequatur dolorem ex illum ipsam maiores minima necessitatibus, omnis praesentium provident
+        recusandae
+        sint. A aut corporis eveniet exercitationem fugit magni natus nesciunt quaerat sint.
+      </p>
+      <p class="about-page__content-text">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. A corporis esse impedit. Assumenda at
+        expedita
+        iusto nesciunt nobis numquam odit optio quibusdam quidem sequi, sint unde, vel voluptatem! Aliquid
+        architecto cumque dicta distinctio eligendi eos facilis similique? Ab asperiores, autem corporis
+        dignissimos dolor exercitationem fugit id incidunt laudantium magnam maiores obcaecati, pariatur
+        praesentium quis quisquam recusandae tempore vero voluptas voluptatibus voluptatum. Assumenda debitis
+        ea
+        facilis quisquam, sunt tempora tenetur. Blanditiis dolor facilis perspiciatis placeat voluptas!
+        Aliquam,
+        consequatur dolorem ex illum ipsam maiores minima necessitatibus, omnis praesentium provident
+        recusandae
+        sint. A aut corporis eveniet exercitationem fugit magni natus nesciunt quaerat sint.
+      </p>
+    </div>
+  </section>
+
+
+  <section class="about-page__layer parallax__layer parallax__layer--front">
+    <div class="about-page__container container">
+      <h1 class="about-page__title">О себе</h1>
+      <div class="about-page__photo-wrapper" data-parallax="wrapper">
+        <div class="about-page__photo-bg" data-speed="0.03" data-parallax="layer">
+          <picture>
+            <source srcset="./images/me-bg.webp">
+            <img class="about-page__image-bg" src="./images/me-bg.jpg" alt="" width="490" height="566">
+          </picture>
+        </div>
+        <div class="about-page__photo" data-speed="0.07" data-parallax="layer">
+          <picture>
+            <source srcset="./images/me.webp">
+            <img class="about-page__image" src="./images/me.png" alt="Фото автора." width="490" height="566">
+          </picture>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
 </main>
 
 

@@ -4,6 +4,7 @@ import Cat from '../components/cat';
 import Reviews from '../components/reviews';
 import Form from '../components/form';
 import {pushReviewToLocalStorage} from '../components/utils';
+import '../components/plugins/parallax/parallax'
 
 const App = {
   render: async function () {
