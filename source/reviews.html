@@ -70,7 +70,7 @@
   <section class="container">
     <h1 class="page__title">Отзывы</h1>
     <div class="claws"></div>
-    <div class="reviews-page__cat cat cat--animated">
+    <div class="reviews-page__cat cat cat--animated cat--init">
       <div class="cat__touch-box" data-type="cat-tail">
         <span class="visually-hidden">Хвост кота.</span>
       </div>
@@ -81,13 +81,15 @@
     </button>
   </section>
   <section class="reviews container">
-    <form class="reviews__form form" name="review" action="https://portfolio-ee6bc-default-rtdb.europe-west1.firebasedatabase.app/reviews.json" method="post">
+    <ul class="reviews__list"></ul>
+    <h2 class="reviews__caption">Оставить отзыв</h2>
+    <form class="reviews__form form" name="review" action="https://portfolio-ee6bc-default-rtdb.europe-west1.firebasedatabase.app/reviews.json/" method="post">
       <fieldset class="form__group">
         <legend class="form__legend">О себе:</legend>
         <ul class="form__list">
           <li class="form__item">
             <label class="form__control textfield">Псевдоним:
-              <input class="textfield__input" name="userName" type="text" placeholder="Имя или ник*" required>
+              <input class="textfield__input" name="userName" type="text" placeholder="Имя или никнейм" required>
             </label>
           </li>
           <li class="form__item">
@@ -102,12 +104,12 @@
         <ul class="form__list">
           <li class="form__item">
             <label class="form__control textfield">Телеграм:
-              <input class="textfield__input" name="userTelegram" type="text" placeholder="Ссылка на ваш Телеграм">
+              <input class="textfield__input" name="userTelegram" type="text" placeholder="https://t.me/user">
             </label>
           </li>
           <li class="form__item">
             <label class="form__control textfield">Вконтакте:
-              <input class="textfield__input" name="userVkontakte" type="text" placeholder="Ссылка на ваш Вконтакте">
+              <input class="textfield__input" name="userVkontakte" type="text" placeholder="https://vk.com/user">
             </label>
           </li>
         </ul>
@@ -116,7 +118,7 @@
         <legend class="form__legend">Оценка:</legend>
         <ul class="form__list">
           <li class="form__item">
-            <label class="form__control textfield textfield--number">Оцените сайт *:
+            <label class="form__control textfield textfield--number">Оцените сайт:
               <input class="textfield__input" name="rating" type="number" min="0" max="10" placeholder="10" required>
               <span>/ 10</span>
             </label>
@@ -128,7 +130,7 @@
         <div class="form__textarea">
           <label class="form__control textarea">
             <span class="visually-hidden">Текст комментария.</span>
-            <textarea class="textarea__input" name="content" placeholder="Введите текст вашего комментария*" cols="100" rows="10" required></textarea>
+            <textarea class="textarea__input" name="content" placeholder="Введите текст вашего комментария" cols="100" rows="10" required></textarea>
           </label>
         </div>
       </fieldset>
@@ -136,7 +138,12 @@
         <button class="form__button button button--primary" type="submit" disabled>Отправить</button>
       </footer>
     </form>
-    <ul class="reviews__list"></ul>
+    <article class="reviews__popup popup">
+      <div class="popup__inner">
+        <h3 class="popup__title">Спасибо!</h3>
+        <p class="popup__text"><span class="popup__text-decor">+ </span> в карму</p>
+      </div>
+    </article>
   </section>
 </main>
 </body>

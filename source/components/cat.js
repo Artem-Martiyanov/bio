@@ -9,6 +9,10 @@ const Cat = {
     }
   },
 
+  onload: function () {
+    this.el.classList.remove('cat--init')
+  },
+
   ready: function () {
     this.el.classList.remove('cat--slow', 'cat--animated')
   },

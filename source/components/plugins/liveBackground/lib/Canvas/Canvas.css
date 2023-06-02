@@ -17,6 +17,7 @@
   bottom: 0;
   top: 0;
   background: radial-gradient(transparent 70%, #141414);
+  touch-action: none;
 }
 
 .canvas__wrapper::before {
@@ -32,6 +33,7 @@
   transform: skewX(-45deg);
   animation: shine 15s ease-in infinite;
   animation-delay: 2s;
+  touch-action: none;
 }
 
 @keyframes shine {

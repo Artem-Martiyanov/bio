@@ -10,19 +10,20 @@ export default class Canvas {
     this.wrapper.appendChild(this.canvas)
     this.ctx = this.canvas.getContext('2d')
   }
-  
+
   #createCanvas = (width, height) => {
     const $canvas = createElement('canvas', 'canvas')
     $canvas.width = width
     $canvas.height = height
     $canvas.style = `width: ${width}px; height: ${height}px;`
+    $canvas.ondragstart = () => false
     return $canvas
   }
-  
+
   clear() {
     this.ctx.clearRect(0, 0, this.WIDTH, this.HEIGHT)
   }
-  
+
   render({position, body}) {
     body.forEach(side => {
       const curX = +position.x + +side.offset.x || 0
@@ -51,7 +52,7 @@ export default class Canvas {
       }
     })
   }
-  
+
   destroy() {
     this.wrapper.parentNode.removeChild(this.wrapper)
   }
