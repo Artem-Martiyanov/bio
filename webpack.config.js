@@ -195,6 +195,13 @@ module.exports = {
           filename: 'images/[name][ext]'
         }
       },
+      {
+        test: /\.mp3$/i,
+        type: 'asset/resource',
+        generator: {
+          filename: 'audio/[name][ext]'
+        }
+      },
     ]
   },
   optimization: optimization()

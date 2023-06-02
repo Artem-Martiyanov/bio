@@ -1,3 +1,8 @@
+import meowFile from '../audio/meow.mp3'
+
+
+const meow = new Audio(meowFile)
+
 const Cat = {
   el: document.querySelector('.cat'),
   tail: document.querySelector('.cat__touch-box'),
@@ -18,8 +23,11 @@ const Cat = {
   },
 
   goBack: function () {
+    meow.volume = 0.2
+    meow.play()
     this.el.classList.add('cat--slow', 'cat--animated')
     this.el.style.transform = 'translateX(0)'
+
   },
 
   move: function (position) {
