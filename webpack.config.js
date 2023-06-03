@@ -45,30 +45,34 @@ const optimization = () => {
           implementation: ImageMinimizerPlugin.imageminMinify,
           options: {
             plugins: [
-              ['gifsicle', {interlaced: true}],
+              ['gifsicle', {interlaced: true, optimizationLevel: 3, colors: 200}],
               ['jpegtran', {progressive: true}],
-              ['optipng', {optimizationLevel: 5}],
+              ['optipng', {
+                optimizationLevel: 6,
+                colorTypeReduction: true,
+                paletteReduction: true,
+                bitDepthReduction: true
+              }],
               [
-                'svgo',
-                {
-                  plugins: [
-                    {
-                      name: 'preset-default',
-                      params: {
-                        overrides: {
-                          removeViewBox: false,
-                          addAttributesToSVGElement: {
-                            params: {
-                              attributes: [
-                                {xmlns: 'http://www.w3.org/2000/svg'},
-                              ],
-                            },
+                'svgo', {
+                plugins: [
+                  {
+                    name: 'preset-default',
+                    params: {
+                      overrides: {
+                        removeViewBox: false,
+                        addAttributesToSVGElement: {
+                          params: {
+                            attributes: [
+                              {xmlns: 'http://www.w3.org/2000/svg'},
+                            ],
                           },
                         },
                       },
                     },
-                  ],
-                },
+                  },
+                ],
+              },
               ],
             ],
           },
@@ -105,9 +109,9 @@ module.exports = {
     port: 3000,
     historyApiFallback: true,
     headers: {
-      "Access-Control-Allow-Origin": "*",
-      "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
-      "Access-Control-Allow-Headers": "X-Requested-With, content-type, Authorization"
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS',
+      'Access-Control-Allow-Headers': 'X-Requested-With, content-type, Authorization'
     },
     // proxy: {
     //   '/': {
