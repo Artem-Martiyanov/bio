@@ -12,7 +12,7 @@
     "pull": "git pull origin master",
     "status": "git status",
     "commit": "git commit -am 'deploy'",
-    "add": "git add dist/",
+    "add": "git add docs/",
     "push": "git push origin gh-pages",
     "checkout:master": "git checkout master",
     "checkout:gh-pages": "git checkout gh-pages",

@@ -25,7 +25,7 @@
       left: 12%;
 
       .about-page__star-wrapper {
-        width: 100px;
+        width: 50px;
         opacity: 0.8;
       }
     }
@@ -35,18 +35,18 @@
       right: 13%;
 
       .about-page__star-wrapper {
-        width: 80px;
+        width: 40px;
         opacity: 0.7;
       }
     }
 
     &--third {
-      top: 37%;
-      right: 15%;
+      top: 75%;
+      right: 35%;
 
       .about-page__star-wrapper {
-        width: 100px;
-        opacity: 0.95;
+        width: 50px;
+        opacity: 0.9;
       }
     }
   }
@@ -66,6 +66,8 @@
 
     @media (max-width: $tablet-width) {
       flex-direction: column;
+      padding-top: 0;
+      gap: 15px;
     }
   }
 
@@ -74,6 +76,10 @@
     flex: 1;
     margin: 1.5em 0 0;
     color: $g-light;
+
+    @media (max-width: $tablet-width) {
+      margin: 0.5em 0 0;
+    }
   }
 
   &__photo-wrapper {
@@ -122,9 +128,17 @@
     font-size: max(min(2vw, 20px), 14px);
     line-height: 1.5;
     display: grid;
-    padding-top: 50vh;
+    margin-top: 50vh;
     color: $g-light;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
+
+    @media (max-width: $tablet-width) {
+      margin-top: 35vh;
+    }
+
+    @media (max-width: $mobile-width) {
+      margin-top: 30vh;
+    }
   }
 
   &__content-text {
@@ -133,11 +147,36 @@
     }
 
     &:nth-child(2) {
-      grid-column: -1/-3;
+      grid-column: -1/-4;
     }
 
     &:nth-child(3) {
-      grid-column: 1/3;
+      grid-column: 1/4;
+    }
+
+    u {
+      text-decoration: none;
+      border: 1px dotted $g-light;
+      border-radius: 5px;
+      padding: 1px;
+    }
+
+    a {
+      color: #32b072;
+      text-decoration: none;
+      border-bottom: 0.5px dashed #32b072;
+      padding-bottom: 1px;
+      transition: color $animation-duration ease, border $animation-duration ease;
+
+      &:hover, &:focus {
+        border-bottom-style: solid;
+        color: $g-green;
+        border-bottom-color: $g-green;
+      }
+
+      &:active {
+        opacity: $down-opacity;
+      }
     }
   }
 }

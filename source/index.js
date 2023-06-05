@@ -1,4 +1,3 @@
-
 import './sass/styles.scss'
 import initPlugins from './components/plugins/instances';
 import {initClickHandle} from './app/clickHandler';

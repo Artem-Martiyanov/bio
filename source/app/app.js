@@ -5,6 +5,8 @@ import Reviews from '../components/reviews';
 import Form from '../components/form';
 import {pushReviewToLocalStorage} from '../components/utils';
 import '../components/plugins/parallax/parallax'
+import '../components/plugins/spaceBackground/index'
+import '../components/aboutAge'
 
 const App = {
   render: async function () {

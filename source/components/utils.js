@@ -30,7 +30,29 @@ export const convertToWebp = (url) => {
   return arr.join('')
 }
 
+/**
+ * Считает количество лет, прошедших с момента входной даты
+ *
+ * @param startDate {Object} Дата отсчёта
+ * @example {day: 13, month: 5, year: 1999}
+ * @returns {Number}
+ */
+export const howManyYearsSince = (startDate) => {
+  const [day, month, year] = new Date(Date.now()).toLocaleDateString().split('.')
+  let countOfYears = +year - startDate.year
+  if (+month < startDate.month) {
+    countOfYears--
+  } else if (+month === startDate.month && +day < startDate.day) {
+    countOfYears--
+  }
+
+  return countOfYears
+}
+
 export const iterator = (start = 0) => () => ++start
+
+
+export const getRandom = (min, max) => Math.random() * (max - min) + min // не включая min
 
 
 export const isMyReview = (id) => localStorage.getItem('reviewsId') ? localStorage.getItem('reviewsId').split(',').includes(id) : false
