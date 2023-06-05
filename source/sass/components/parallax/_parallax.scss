@@ -1,24 +1,33 @@
 .parallax {
+  overflow-x: hidden;
   overflow-y: scroll;
   height: 100vh;
   perspective: 1px;
 
   &__layer {
     position: absolute;
+    pointer-events: none;
     inset: 0;
 
-
     &--back {
-      transform: translateZ(-3px) scale(3.9);
-      height: 4320px;
+      top: 113vh;
+      min-height: 175vh;
+      transform: translateZ(-3px) scale(4);
     }
 
     &--middle {
-      transform: translateZ(-2px) scale(2.9);
+      top: 100vh;
+      min-height: 200vh;
+      transform: translateZ(-2px) scale(3);
     }
 
     &--front {
+      min-height: 400vh;
       transform: translateZ(0);
+    }
+
+    & > * {
+      pointer-events: auto;
     }
   }
 }

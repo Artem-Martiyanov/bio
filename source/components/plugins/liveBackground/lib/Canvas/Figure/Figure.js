@@ -1,22 +1,17 @@
 export default class Figure {
     constructor(facetSize, position) {
-
         this.model = {
             position,
             body: []
         }
     }
-
     direction = 1
-
-
     setPosition(x, y) {
         this.model.body.forEach(side => {
             this.model.position.x = side.offset.x + x
             this.model.position.y = side.offset.y + y
         })
     }
-
     isInclude(x, y) {
         let result = false;
         const figure = this.model.body[0].figure
