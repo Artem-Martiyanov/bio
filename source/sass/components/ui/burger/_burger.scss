@@ -16,7 +16,7 @@ $burger-hover-color: $g-green;
   transition: opacity $animation-duration ease;
   border: none;
   background: none;
-  
+
   &::before,
   &::after {
     position: absolute;
@@ -28,15 +28,15 @@ $burger-hover-color: $g-green;
     border-radius: 3px;
     background-color: $g-light;
   }
-  
+
   &::before {
     top: 0;
   }
-  
+
   &::after {
     bottom: 0;
   }
-  
+
   &__item {
     z-index: -1;
     display: block;
@@ -45,27 +45,28 @@ $burger-hover-color: $g-green;
     transition: opacity $burger-transition ease, background-color $animation-duration ease, transform 0.3s ease;
     border-radius: 3px;
     background-color: $g-light;
+    pointer-events: none;
   }
-  
+
   &--active .burger__item {
     transform: scale(0);
     transform-origin: 0 50%;
     opacity: 0;
   }
-  
+
   &--active::before {
     transform: translateY($burger-height * 0.45 - 1) rotate(-45deg);
   }
-  
+
   &--active::after {
     transform: translateY($burger-height * -0.45 + 1) rotate(45deg);
   }
-  
+
   &:hover &__item, &:hover.burger::before, &:hover.burger::after,
   &:focus-visible &__item, &:focus-visible.burger::before, &:focus-visible.burger::after {
     background-color: $burger-hover-color;
   }
-  
+
   @supports not selector(:focus-visible) {
     &:focus &__item, &:focus.burger::before, &:focus.burger::after {
       background-color: $burger-hover-color;

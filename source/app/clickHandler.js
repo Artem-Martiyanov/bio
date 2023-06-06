@@ -12,7 +12,6 @@ import Lamp from '../components/lamp';
 import Works from '../components/works';
 import Cat from '../components/cat';
 import Reviews from '../components/reviews';
-import Form from '../components/form';
 
 let switchCount = 0
 
@@ -23,7 +22,7 @@ const onClickHandler = (event) => {
     Dialog.show()
   }
 
-  if (dataType === 'burger' || dataType === 'nav' || event.target.closest('[data-type="burger"]')) {
+  if (dataType === 'burger' || dataType === 'nav') {
     Burger.toggle()
   }
 
@@ -56,9 +55,7 @@ const onClickHandler = (event) => {
     }
   }
 
-
   if (dataType === 'cat-tail') {
-    //TODO: Декомпозировать это убожество
     document.ondragstart = () => false
     const upHandler = () => {
       document.removeEventListener('pointermove', moveHandler)
@@ -113,7 +110,6 @@ const onClickHandler = (event) => {
 
     store.actions.reviews.remove(id).then(() => Reviews.render())
   }
-
 }
 
 export function initClickHandle() {

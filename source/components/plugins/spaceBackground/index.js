@@ -10,9 +10,9 @@ if (wrapper) {
     const canvas = document.createElement('canvas')
     canvas.width = width
     canvas.height = height
-    canvas.style = `width: ${width}px; height: ${height}px; z-index: -50;`
+    canvas.style = `width: ${width}px; height: ${height}px; z-index: -1;`
     canvas.ondragstart = () => false
-    wrapper.appendChild(canvas)
+    wrapper.insertAdjacentElement('afterbegin', canvas)
     return canvas.getContext('2d')
   }
   const renderStar = (x, y, radius, color, opacity) => {

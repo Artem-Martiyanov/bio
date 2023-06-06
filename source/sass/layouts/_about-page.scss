@@ -15,6 +15,16 @@
   &__layer {
     width: 100%;
     padding-top: 90px;
+
+    &--back {
+      background-image: url("../images/moon.png");
+      background-image: image-set(
+          url("../images/moon.webp") 1x,
+          url("../images/moon.png") 1x);
+      background-repeat: no-repeat;
+      background-position: calc(100% - 20px) calc(100% - 50px);
+      background-size: 13vh;
+    }
   }
 
   &__star {
@@ -155,22 +165,22 @@
     }
 
     u {
+      padding: 1px;
       text-decoration: none;
       border: 1px dotted $g-light;
       border-radius: 5px;
-      padding: 1px;
     }
 
     a {
-      color: #32b072;
-      text-decoration: none;
-      border-bottom: 0.5px dashed #32b072;
       padding-bottom: 1px;
       transition: color $animation-duration ease, border $animation-duration ease;
+      text-decoration: none;
+      color: #32b072;
+      border-bottom: 0.5px dashed #32b072;
 
       &:hover, &:focus {
-        border-bottom-style: solid;
         color: $g-green;
+        border-bottom-style: solid;
         border-bottom-color: $g-green;
       }
 
